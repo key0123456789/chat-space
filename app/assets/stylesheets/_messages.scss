@@ -4,117 +4,130 @@ $accent-color: #38AEF0;
   height: 24px;
   width: 100%;
   background-color: $accent-color;
+  // display: none;
   &__flash-box {
     color: #fff;
     text-align: center;
   }
 }
+.wrapper {
+  box-sizing: border-box;
+  .chat-side {
+    width: 300px;
+    color: white;
+    float: left;
+    &__side-header{
+      background-color: #253141;
+      padding: 0 20px;
+      height: 100px;
+      align-items: center;
+      display: flex;
+      &__box{
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        &__menu {
+          list-style: none;
+          display: flex;
+        }
+      }
+    }
+    &__btn {
+      color: white;
+      margin-left: 0.3rem;
+    }
+    &__groups {
+      height: calc(100vh - 100px);
+      background-color: #2f3e51;
+      padding: 20px 20px 0;
+      overflow: scroll;
+      &__group {
+        margin-bottom: 40px;
+        &__group-name {
+          font-size: 15px;
+          font-weight: bold;
+          padding-bottom: 10px;
+        }
+        &__latest-message {
+          font-size: 11px;
+        }
+      }
+    }
+  }
 
-.chat-side {
-  width: 300px;
-  color: white;
-  float: left;
-  &__side-header{
-    background-color: #253141;
-    padding: 0 20px;
-    height: 100px;
-    align-items: center;
-    display: flex;
-    &__box{
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      width: 100%;
+  .chat-main {
+    width: calc(100% - 300px);
+    float: right;
+    .main-header {
+      height: 100px;
+      padding: 0 40px;
       display: flex;
       justify-content: space-between;
-      &__menu {
-        list-style: none;
+      border-bottom: solid 1px #eee;
+      overflow: scroll;
+    &__left-box {
+      margin-top: 35px;
+      &__current-group {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+      &__member-list {
+        font-size: 12px;
+        color: #999;
         display: flex;
       }
     }
-  }
-  &__btn {
-    color: white;
-    margin-left: 0.3rem;
-  }
-  &__groups {
-    height: calc(100vh - 100px);
-    background-color: #2f3e51;
-    padding: 20px 20px 0;
-    overflow: scroll;
-    &__group {
-      margin-bottom: 40px;
-      &__group-name {
-        font-size: 15px;
-        font-weight: bold;
-      }
-      &__latest-message {
-        font-size: 11px;
-      }
+    &__edit-btn {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top: 30px;
+      border: solid 1px $accent-color;
+      color: $accent-color;
+      position: absolute;
+      right: 40px;
     }
-  }
-}
+    }
 
-.chat-main {
-  .main-header {
-    height: 100px;
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: solid 1px #eee;
-    overflow: scroll;
-  &__left-box {
-    margin-top: 35px;
-    &__current-group {
-      font-size: 20px;
-      color: #333;
-      margin-bottom: 15px;
-    }
-    &__member-list {
-      font-size: 12px;
-      color: #999;
-      display: flex;
-    }
-  }
-  &__edit-btn {
-    height: 40px;
-    line-height: 40px;
-    padding: 0 20px;
-    margin-top: 30px;
-    border: solid 1px $accent-color;
-    color: $accent-color;
-    position: absolute;
-    right: 40px;
-   }
-  }
-  .messages {
-    height: calc(100vh - 190px);
-    padding: 46px 40px;
-    background-color: #fafafa;
-    overflow: scroll;
-    .message {
+    .messages {
+      height: calc(100vh - 190px);
+      padding: 46px 40px;
       background-color: #fafafa;
       overflow: scroll;
-      padding-bottom: 40px;
-      &__upper-info {
-        margin-bottom: 10px;
-        display: flex;
-        &__talker {
-          color: #434a54;
-          font-size: 16px;
-          font-weight: bold;
-        }
-        &__date {
-          font-size: 12px;
-          color: #999;
-          margin-left: 10px;
-        }
-      }
-          &__text {
+      .message {
+        padding-bottom: 40px;
+        &__upper-info {
+          margin-bottom: 10px;
+          display: flex;
+          &__talker {
             color: #434a54;
-            font-size: 14px;
-            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &__date {
+            font-size: 12px;
+            color: #999;
+            margin-left: 10px;
+          }
+        }
+            &__text {
+              color: #434a54;
+              font-size: 14px;
+              margin-bottom: 10px;
+        }
       }
+    }
+    .form {
+      height: 90px;
+      background-color: #ddd;
+      padding: 20px 40px;
+      // position: fixed;
+      // bottom: 0px;
+      // width: 100%;
     }
   }
 }
