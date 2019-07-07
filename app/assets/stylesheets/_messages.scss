@@ -1,0 +1,38 @@
+.header {
+  height: 24px;
+  width: 100%;
+  background-color: #38AEF0;
+  &__flash-box {
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.chat-side {
+  width: 300px;
+  color: white;
+  float: left;
+  &__side-header{
+    background-color: #253141;
+    padding: 0 20px;
+  height: 100px;
+    align-items: center;
+    display: flex;
+    &__box{
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &__menu {
+        list-style: none;
+        display: flex;
+      }
+    }
+  }
+  &__btn {
+    color: white;
+    margin-left: 0.3rem;
+  }
+}

@@ -1,0 +1,18 @@
+.header
+  .header__flash-box
+    グループを作成しました。
+
+.chat-side
+  .chat-side__side-header
+    .chat-side__side-header__box
+      .chat-side__side-header__box__user-name
+        %p name
+      .chat-side__side-header__box__menu
+
+        .chat-side__side-header__box__menu__new
+          =link_to "#", class: "chat-side__btn" do
+            = fa_icon 'edit'
+        .chat-side__side-header__box__menu__edit-user
+          =link_to "#", class: "chat-side__btn" do
+            = fa_icon 'cog'
+.groups
