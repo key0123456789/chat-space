@@ -19,3 +19,29 @@
     .chat-side__groups__group
       %p.chat-side__groups__group__group-name グループの名前
       %p.chat-side__groups__group__latest-message 新着メッセージ
+.chat-main
+  .main-header
+    .main-header__left-box
+      .main-header__left-box__current-group
+        グループ名
+      .main-header__left-box__member-list
+        Member：
+        .main-header__left-box__member-list__member
+          メンバー
+    .main-header__edit-btn
+      Edit
+  .messages
+    .message
+      .message__upper-info
+        .message__upper-info__talker
+          名前
+        .message__upper-info__date 
+          2019/7/7
+      %P.message__text 
+        こんにちは ※最新のテキストの内容
+  .form
+    .new_message
+      .input-box
+        .input-box__text
+        .input-box__image
+      .submit-btn
