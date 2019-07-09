@@ -1,4 +1,7 @@
 $accent-color: #38AEF0;
+* {
+  box-sizing: border-box;
+}
 
 .header {
   height: 24px;
@@ -8,10 +11,13 @@ $accent-color: #38AEF0;
   &__flash-box {
     color: #fff;
     text-align: center;
+    font-size: 1rem;
+    font-weight: lighter;
   }
 }
 .wrapper {
-  box-sizing: border-box;
+  // height: 100vh;
+  // box-sizing: border-box;
   .chat-side {
     width: 300px;
     color: white;
@@ -59,8 +65,9 @@ $accent-color: #38AEF0;
   }
 
   .chat-main {
+    // box-sizing: border-box;
     width: calc(100% - 300px);
-    float: right;
+    float: left;
     .main-header {
       height: 100px;
       padding: 0 40px;
@@ -99,6 +106,7 @@ $accent-color: #38AEF0;
       background-color: #fafafa;
       overflow: scroll;
       .message {
+        // margin-top: 46px;
         padding-bottom: 40px;
         &__upper-info {
           margin-bottom: 10px;
@@ -125,9 +133,37 @@ $accent-color: #38AEF0;
       height: 90px;
       background-color: #ddd;
       padding: 20px 40px;
-      // position: fixed;
-      // bottom: 0px;
-      // width: 100%;
+      // display: flex;
+      // box-sizing: border-box;
+      // width: calc(100vw - 300px);
+        .input-box {
+          width: 100%;
+          display: flex;
+          position: relative;
+          &__text {
+            height: 50px;
+            width: 100%;
+            padding: 0 40px 0 10px;
+            color: #020914;
+            border-style: none;
+          }
+          &__image {
+            color: black;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.3rem;
+            cursor: pointer;
+          }
+          .submit-btn {
+            width: 100px;
+            height: 50px;
+            padding: 0 30px;
+            margin-left:15px;
+            background-color: $accent-color;
+            color: white;
+            }
+          }
+      }
     }
   }
-}

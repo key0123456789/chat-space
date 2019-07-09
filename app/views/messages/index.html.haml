@@ -41,8 +41,11 @@
           こんにちは ※最新のテキストの内容
 
     .form
-      .new_message
-        .input-box
-          .input-box__text
-          .input-box__image
-        .submit-btn
+      .input-box
+        %form{class:"new_message"}
+          %input#message-content.input-box__text{placeholder:"type a message"}
+            %label
+              =link_to "#", class: "input-box__image" do
+                = fa_icon 'image'
+        %input{type:"submit",name:"commit", class:"submit-btn", value:"Send"}
+
