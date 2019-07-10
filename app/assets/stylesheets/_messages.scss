@@ -1,4 +1,5 @@
 $accent-color: #38AEF0;
+
 * {
   box-sizing: border-box;
 }
@@ -7,17 +8,15 @@ $accent-color: #38AEF0;
   height: 24px;
   width: 100%;
   background-color: $accent-color;
-  // display: none;
   &__flash-box {
-    color: #fff;
+    color: white;
     text-align: center;
     font-size: 1rem;
     font-weight: lighter;
   }
 }
+
 .wrapper {
-  // height: 100vh;
-  // box-sizing: border-box;
   .chat-side {
     width: 300px;
     color: white;
@@ -65,9 +64,9 @@ $accent-color: #38AEF0;
   }
 
   .chat-main {
-    // box-sizing: border-box;
     width: calc(100% - 300px);
     float: left;
+    position: relative;
     .main-header {
       height: 100px;
       padding: 0 40px;
@@ -88,7 +87,7 @@ $accent-color: #38AEF0;
         display: flex;
       }
     }
-    &__edit-btn {
+    &__edit-btn{
       height: 40px;
       line-height: 40px;
       padding: 0 20px;
@@ -97,8 +96,8 @@ $accent-color: #38AEF0;
       color: $accent-color;
       position: absolute;
       right: 40px;
-    }
-    }
+  }
+}
 
     .messages {
       height: calc(100vh - 190px);
@@ -106,7 +105,6 @@ $accent-color: #38AEF0;
       background-color: #fafafa;
       overflow: scroll;
       .message {
-        // margin-top: 46px;
         padding-bottom: 40px;
         &__upper-info {
           margin-bottom: 10px;
@@ -160,7 +158,12 @@ $accent-color: #38AEF0;
           margin-left:15px;
           background-color: $accent-color;
           color: white;
+          cursor: pointer;
         }
       }
     }
+  }
+
+  #hidden{
+    display: none;
   }

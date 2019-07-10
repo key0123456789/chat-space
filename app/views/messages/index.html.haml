@@ -8,7 +8,6 @@
         .chat-side__side-header__box__user-name
           %p name
         .chat-side__side-header__box__menu
-
           .chat-side__side-header__box__menu__new
             =link_to "#", class: "chat-side__btn" do
               = fa_icon 'edit'
@@ -22,19 +21,20 @@
   .chat-main
     .main-header
       .main-header__left-box
-        .main-header__left-box__current-group
-          グループ名
-        .main-header__left-box__member-list
+        %p.main-header__left-box__current-group
+          グループの名前
+        %p.main-header__left-box__member-list
           Member：
-          .main-header__left-box__member-list__member
+          %p.main-header__left-box__member-list__member
             メンバー
-      .main-header__edit-btn
-        Edit
+      %a{href:"#"}
+        .main-header__edit-btn
+          Edit
     .messages
       .message
         .message__upper-info
           .message__upper-info__talker
-            名前
+            name
           .message__upper-info__date 
             2019/07/05(Fri) 01:08:59
         %P.message__text 
@@ -42,10 +42,11 @@
 
     .form
       .input-box
-        %form{class:"new_message"}
+        %form
           %input#message-content.input-box__text{placeholder:"type a message"}
-            %label
-              =link_to "#", class: "input-box__image" do
-                = fa_icon 'image'
-      %input{type:"submit",name:"commit", class:"submit-btn", value:"Send"}
+            %label.input-box__image
+              = fa_icon 'picture-o', class: "image_file"
+              %input#hidden{type:"file"}
+      %a{href:"#"}
+        %input{type:"submit",name:"commit", class:"submit-btn", value:"Send"}
 
