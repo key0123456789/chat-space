@@ -19,16 +19,4 @@
               = group.name
             %p.chat-side__groups__group__latest-message
               メッセージはまだありません。
-  .chat-main
-    = render partial: "current-group"
-    = render partial: "current-message"
-    .form
-      .input-box
-        %form
-          %input#message-content.input-box__text{placeholder:"type a message"}
-            %label.input-box__image
-              = fa_icon 'picture-o', class: "image_file"
-              %input#hidden{type:"file"}
-      %a{href:"#"}
-        %input{type:"submit", name:"commit", class:"submit-btn", value:"Send"}
-
+  .chat-main-empty
