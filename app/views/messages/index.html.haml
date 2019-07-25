@@ -21,7 +21,8 @@
               メッセージはまだありません。
   .chat-main
     = render partial: "current-group"
-    = render partial: "current-message"
+    .messages
+      = render partial: "message", collection: @messages
     .form
       = form_for [@group, @message] do |f|
         .input-box
