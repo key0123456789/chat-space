@@ -4,8 +4,9 @@
       = @group.name
     %p.main-header__left-box__member-list
       Member：
-      -# %p.main-header__left-box__member-list__member
-      -#   メンバー
+      %a.main-header__left-box__member-list__member
+        - @group.show_members.each do|member|
+          = member
   %a
     .main-header__edit-btn
       = link_to edit_group_path(@group) do
