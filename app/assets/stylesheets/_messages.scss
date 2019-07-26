@@ -103,6 +103,9 @@ $accent-color: #38AEF0;
       color: $accent-color;
       position: absolute;
       right: 40px;
+      :link {
+        color: $accent-color;
+      }
       :visited{
         color: $accent-color;
       }
