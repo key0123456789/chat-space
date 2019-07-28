@@ -5,7 +5,7 @@ class Group < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  //
+  
   def show_members
     group_member = []
     users.each do |user|
