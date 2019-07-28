@@ -14,21 +14,33 @@
     .chat-side__groups
       - current_user.groups.each do |group|
         .chat-side__groups__group
-          = link_to "#" do
+          = link_to group_messages_path(group) do
             %p.chat-side__groups__group__group-name
               = group.name
             %p.chat-side__groups__group__latest-message
-              メッセージはまだありません。
+              = group.show_last_message
   .chat-main
     = render partial: "current-group"
-    = render partial: "current-message"
+    .messages
+      = render partial: "message", collection: @messages
     .form
-      .input-box
-        %form
-          %input#message-content.input-box__text{placeholder:"type a message"}
-            %label.input-box__image
-              = fa_icon 'picture-o', class: "image_file"
-              %input#hidden{type:"file"}
-      %a{href:"#"}
-        %input{type:"submit", name:"commit", class:"submit-btn", value:"Send"}
+      = form_for [@group, @message] do |f|
+        .input-box
+          .input-box__textarea
+          = f.text_field :content, class: 'input-box__text', id: 'message-content', placeholder: 'type a message'
+          .new-message
+            .form__mask
+              = f.label :image, class: 'input-box__image' do
+                = fa_icon 'picture-o', class: "image_file"
+                = f.file_field :image, id: 'hidden'
+            .form__btn
+              = f.submit 'Send', class: 'submit-btn', name: "commit"
+
+      -#   %form
+      -#     %input#message-content.input-box__text{placeholder:"type a message"}
+      -#       %label.input-box__image
+      -#         = fa_icon 'picture-o', class: "image_file"
+      -#         %input#hidden{type:"file"}
+      -# %a{href:"#"}
+      -#   %input{type:"submit", name:"commit", class:"submit-btn", value:"Send"}
 
