@@ -6,4 +6,4 @@
       = message.created_at.strftime("%Y/%m/%d(%a) %H:%M")
   %P.message__text 
     = message.content
-    = image_tag(message.image)
+    = image_tag(message.image.to_s)
