@@ -64,4 +64,10 @@ RSpec.configure do |config|
   Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerMacros, type: :controller
+
+    config.after do |example|
+      if example.metadata[:type] == :feature and example.exception.present? and example.metadata[:open_on_error] == true
+        save_and_open_page
+    end
+  end
 end
