@@ -36,6 +36,7 @@
     .form
       = form_for [@group, @message] do |f|
         .input-box
+          = f.hidden_field :user_id, value: "#{@message.user_id}"
           = f.text_field :content, class: 'input-box__text', id: 'message-content', placeholder: 'type a message'
           = f.label :image, class: 'input-box__image' do
             = fa_icon 'picture-o', class: "image_file"
