@@ -23,19 +23,10 @@
     = render partial: "current-group"
     .messages
       = render partial: "message", collection: @messages
-    -# .form
-      -# = form_for [@group, @message] do |f|
-      -#   = f.file_field :content, class: 'input-box__text', placeholder: 'type a message'
-      -#     = f.label :image,  class: "input-box__image"
-      -#       = fa_icon 'picture-o', class: "image_file"
-      -#       = f.file_field :image, id: 'hidden', class: 'input-box__image__file'
-      -#     = f.submit 'Send', class: 'submit-btn', name: "commit"
-
-
-
     .form
       = form_for [@group, @message] do |f|
         .input-box
+          = f.hidden_field :user_id, value: "#{@message.user_id}"
           = f.text_field :content, class: 'input-box__text', id: 'message-content', placeholder: 'type a message'
           = f.label :image, class: 'input-box__image' do
             = fa_icon 'picture-o', class: "image_file"
