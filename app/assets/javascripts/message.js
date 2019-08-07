@@ -37,6 +37,7 @@ $(function(){
         var html = buildHTML(data);
         $('.messages').append(html)
         $('#message-content').val('')
+        $('#message_image').val('')
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast' );
       })
       .fail(function(){
@@ -45,8 +46,9 @@ $(function(){
       return false;
     });
   }
+  // if ($('#message-content').val() == "" && $('#message_image').val() == "" ) return;
   $(handler);
   $(document).on("turbolinks:load", handler);
   $(document).on("turbolinks:restore", handler);
-
+  
 });
