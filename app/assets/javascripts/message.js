@@ -46,7 +46,6 @@ $(function(){
       return false;
     });
   }
-  // if ($('#message-content').val() == "" && $('#message_image').val() == "" ) return;
   $(handler);
   $(document).on("turbolinks:load", handler);
   $(document).on("turbolinks:restore", handler);
