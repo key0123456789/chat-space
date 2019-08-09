@@ -29,12 +29,17 @@ $(function() {
       dataType: 'json'
     })
     .done(function(users) {
+
       search_result.empty();
-      if (users.length !== 0) {
+      if (input.length === 0) {
+        $('#user-search-result').empty();
+      } 
+      else if (users.length !== 0) {
         users.forEach(function(user){
           appendUsers(user);
         });
-      } else {
+      }
+      else {
         appendErrMsgToHTML("一致する候補はいません");
       }
     })
