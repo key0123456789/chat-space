@@ -16,8 +16,8 @@ $(function(){
               
               <img src='${message.image}' class="message-image">
           </p>
-        </div>
-      `
+        </div>`
+        
       return html;
     }
 
