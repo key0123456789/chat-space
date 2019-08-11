@@ -49,6 +49,8 @@ $(function() {
       } 
 
       else if (users.length !== 0) {
+        // var comparison = $('input[name="group[user_ids][]"]').val();
+        // console.log(comparison); 上の値をどう取得？
         users.forEach(function(user){
           // var target = (user.id);
           // console.log(target);
