@@ -47,7 +47,4 @@ $(function(){
     });
   }
   $(handler);
-  $(document).on("turbolinks:load", handler);
-  $(document).on("turbolinks:restore", handler);
-  
 });
