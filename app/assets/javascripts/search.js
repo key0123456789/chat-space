@@ -19,8 +19,7 @@ $(function() {
     search_result.append(html);
   }
 
-
-  function changeUser(userName, userId) {
+  function addUser(userName, userId) {
     var html = `<div class='chat-group-user'>
                   <input name='group[user_ids][]' type='hidden' value="${ userId }">
                     <a class='chat-group-user__name'>${ userName }</a>
@@ -30,7 +29,6 @@ $(function() {
     $('.chat-group-users').append(html);
     console.log(html);
   }
-
 
   $("#user-search-field").on("keyup", function(e) {
     e.preventDefault();
@@ -68,7 +66,7 @@ $(function() {
     $(this).parent().remove();
     var userName = $(this).data('userName');
     var userId = $(this).data('userId');
-      changeUser(userName, userId);
+      addUser(userName, userId);
   });
 
   $(document).on("click",'.js-remove-btn', function() {
