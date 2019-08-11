@@ -50,6 +50,9 @@ $(function() {
 
       else if (users.length !== 0) {
         users.forEach(function(user){
+          // var target = (user.id);
+          // console.log(target);
+          // if(target === comparison){ return; }
           appendUsers(user);
         });
       }

@@ -13,7 +13,6 @@ $(function(){
           </div>
           <p class="message__text">
               ${message.content}
-              
               <img src='${message.image}' class="message-image">
           </p>
         </div>`
