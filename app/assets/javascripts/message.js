@@ -34,7 +34,6 @@ $(function(){
       })
       .done(function(data){
         var html = buildHTML(data);
-        // console.log(html);→画像送信時に条件式のfalseを通っているらしく、HTMLが空欄になる。
         $('.messages').append(html)
         $('#message-content').val('')
         $('#message_image').val('')
