@@ -22,6 +22,12 @@ $accent-color: #38AEF0;
     width: 300px;
     color: white;
     float: left;
+    :link {
+      color: white;
+    }
+    :visited {
+      color: white;
+    }
     &__side-header{
       background-color: #253141;
       padding: 0 20px;
@@ -50,12 +56,6 @@ $accent-color: #38AEF0;
       background-color: #2f3e51;
       padding: 20px 20px 0;
       overflow: scroll;
-      :link {
-        color: white;
-      }
-      :visited {
-        color: white;
-      }
       &__group {
         margin-bottom: 40px;
         &__group-name {
