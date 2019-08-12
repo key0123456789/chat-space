@@ -1,12 +1,12 @@
 $(function(){
     function buildHTML(message){
-      var html = `<div class="message">
+      var html = `<div class="message" data-id=${ message.id }>
                     <div class="message__upper-info">
                       <div class="message__upper-info__talker">
-                        ${message.name}
+                        ${ message.name }
                       </div>
                       <div class="message__upper-info__date">
-                        ${message.created_at}
+                        ${ message.created_at }
                       </div>
                     </div>
                     <p class="message__text" data-message="content">
@@ -43,28 +43,28 @@ $(function(){
       return false;
     });
   
-    function buildMessageHTML(message) {
-      var insertHTML = `<div class="message" data-id=${ message.id }>
-                          <div class="upper-message">
-                            <div class="upper-message__user-name">
-                              ${ message.user_name }
-                            </div>
-                            <div class="upper-message__date">
-                              ${ message.created_at }
-                            </div>
-                          </div>
-                          <div class="lower-message">
-                            <p class="lower-message__content">
-                              ${ message.content }
-                            </p>
-                            <img src="${ message.image.url }" class="lower-message__image">
-                          </div>
-                        </div>`
+    // function buildMessageHTML(message) {
+    //   var insertHTML = `<div class="message" data-id=${ message.id }>
+    //                       <div class="upper-message">
+    //                         <div class="upper-message__user-name">
+    //                           ${ message.user_name }
+    //                         </div>
+    //                         <div class="upper-message__date">
+    //                           ${ message.created_at }
+    //                         </div>
+    //                       </div>
+    //                       <div class="lower-message">
+    //                         <p class="lower-message__content">
+    //                           ${ message.content }
+    //                         </p>
+    //                         <img src="${ message.image.url }" class="lower-message__image">
+    //                       </div>
+    //                     </div>`
    
-      // if(message.content || message.image.url) {
-        return insertHTML;
-      // };
-    }
+    //   // if(message.content || message.image.url) {
+    //     return insertHTML;
+    //   // };
+    // }
 
     var reloadMessages = function() {
       if($('.messages')[0]){
@@ -75,11 +75,11 @@ $(function(){
         dataType: 'json',
         data: {id: last_message_id}
       })
-      .done(function(messages) {
+      .done(function(data) {
       // console.log('sucess')
-        var insertHTML = buildMessageHTML(message);
+        var insertHTML = buildHTML(data);
       //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-        messages.forEach(function(message){
+        messages.forEach(function(data){
           var html = insertHTML(message);
           $('.messages').append(html)
         })
