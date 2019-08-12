@@ -1,9 +1,10 @@
 $(function(){
     function buildHTML(message){
+      var image = message.image.url ? `<img src='${message.image.url}' class="message-image">`:""
       var html = `<div class="message" data-id='${ message.id }'>
                     <div class="message__upper-info">
                       <div class="message__upper-info__talker">
-                        ${ message.name }
+                        ${ message.user_name }
                       </div>
                       <div class="message__upper-info__date">
                         ${ message.created_at }
@@ -11,7 +12,7 @@ $(function(){
                     </div>
                     <p class="message__text" data-message="content">
                       ${message.content}
-                      <img src='${message.image}' class="message-image">
+                      ${ image }
                     </p>
                   </div>`
 
@@ -33,6 +34,7 @@ $(function(){
       })
       .done(function(data){
         var html = buildHTML(data);
+        // console.log(html);→画像送信時に条件式のfalseを通っているらしく、HTMLが空欄になる。
         $('.messages').append(html)
         $('#message-content').val('')
         $('#message_image').val('')
@@ -43,30 +45,7 @@ $(function(){
       })
       return false;
     });
-  
-    // function buildMessageHTML(message) {
-    //   var insertHTML = `<div class="message" data-id=${ message.id }>
-    //                       <div class="upper-message">
-    //                         <div class="upper-message__user-name">
-    //                           ${ message.user_name }
-    //                         </div>
-    //                         <div class="upper-message__date">
-    //                           ${ message.created_at }
-    //                         </div>
-    //                       </div>
-    //                       <div class="lower-message">
-    //                         <p class="lower-message__content">
-    //                           ${ message.content }
-    //                         </p>
-    //                         <img src="${ message.image.url }" class="lower-message__image">
-    //                       </div>
-    //                     </div>`
-   
-    //   // if(message.content || message.image.url) {
-    //     return insertHTML;
-    //   // };
-    // }
-
+ 
     var reloadMessages = function() {
       if($('.messages')[0]){
         var last_message_id = $('div>.message:last').data('id');
@@ -79,7 +58,6 @@ $(function(){
       .done(function(messages) {
         messages.forEach(function(message){
           var insertHTML = buildHTML(message);
-          console.log (insertHTML);
           $('.messages').append(insertHTML)
           $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast' );
         })
