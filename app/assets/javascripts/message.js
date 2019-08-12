@@ -70,7 +70,6 @@ $(function(){
     var reloadMessages = function() {
       if($('.messages')[0]){
         var last_message_id = $('div>.message:last').data('id');
-        // console.log(last_message_id);
       $.ajax ({
         url: "api/messages",
         type: 'GET',
@@ -78,22 +77,17 @@ $(function(){
         data: {id: last_message_id}
       })
       .done(function(messages) {
-      // messagesには投稿の全部のデータが配列で入っている。
-        var insertHTML = [];
-        //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-        if(last_message_id > $('.message:last').data('id')){
-          // console.log(messages);
         messages.forEach(function(message){
-          insertHTML = buildHTML(message);
+          var insertHTML = buildHTML(message);
+          console.log (insertHTML);
+          $('.messages').append(insertHTML)
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast' );
         })
-        $('.messages').append(insertHTML)
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast' );
-      }
-    })
+      })
       .fail(function() {
         alert('自動更新できませんでした');
       })
     }
   }
-  setInterval(reloadMessages, 10000);
+  setInterval(reloadMessages, 5000);
 });
