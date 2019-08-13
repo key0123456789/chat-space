@@ -7,7 +7,6 @@
       %a.main-header__left-box__member-list__member
         - @group.users.each do|user|
           = user.name
-  %a
-    = link_to edit_group_path(@group) do
-      .main-header__edit-btn
-        Edit
+  = link_to edit_group_path(@group) do
+    .main-header__edit-btn
+      Edit
